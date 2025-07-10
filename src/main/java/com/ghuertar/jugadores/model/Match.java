@@ -1,5 +1,6 @@
 package com.ghuertar.jugadores.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +10,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -17,6 +19,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "matches")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Match {
 
     @Id
@@ -44,13 +47,8 @@ public class Match {
     @Column(nullable = false)
     private Double totalCost;
 
-    /*@ManyToMany
-    @JoinTable(
-            name = "match_player",
-            joinColumns = @JoinColumn(name = "match_id"),
-            inverseJoinColumns = @JoinColumn(name = "player_id")
-    )
-    private Set<Player> registeredPlayers;*/
+    @Transient
+    private List<Player> players;
 
     @OneToMany(mappedBy = "match", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<PlayerRegistration> playerRegistrations = new HashSet<>();

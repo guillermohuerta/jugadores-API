@@ -31,10 +31,12 @@ public class PlayerRegistration {
     @Column(nullable = false)
     private boolean willAttend;
 
+    @Column(nullable = false)
     private boolean hasPaid;
 
     private String receiptUrl;
 
+    @Column(nullable = false)
     private boolean onBench;
 
     @Column(nullable = false)

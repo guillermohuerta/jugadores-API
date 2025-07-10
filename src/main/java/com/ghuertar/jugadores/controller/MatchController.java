@@ -20,9 +20,15 @@ public class MatchController {
         return ResponseEntity.ok(createdMatch);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Match> getMatch(@PathVariable Long id) {
-        Match getMatch = matchService.getMatch(id);
+    @GetMapping("/{matchId}")
+    public ResponseEntity<Match> getMatch(@PathVariable Long matchId) {
+        Match getMatch = matchService.getMatch(matchId);
+        return ResponseEntity.ok(getMatch);
+    }
+
+    @GetMapping("/{matchId}/players")
+    public ResponseEntity<Match> getMatchPlayers(@PathVariable Long matchId) {
+        Match getMatch = matchService.getMatchPlayers(matchId);
         return ResponseEntity.ok(getMatch);
     }
 }

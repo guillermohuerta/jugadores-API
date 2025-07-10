@@ -20,9 +20,9 @@ public class PlayerController {
         return ResponseEntity.ok(createdPlayer);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Player> getPlayer(@PathVariable Long id) {
-        Player getPlayer = playerService.getPlayer(id);
+    @GetMapping("/{playerId}")
+    public ResponseEntity<Player> getPlayer(@PathVariable Long playerId) {
+        Player getPlayer = playerService.getPlayer(playerId);
         return ResponseEntity.ok(getPlayer);
     }
 }

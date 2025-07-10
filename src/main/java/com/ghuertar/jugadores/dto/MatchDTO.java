@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public record MatchDTO(
-        Long id,
         LocalDate date,
         LocalTime hour,
         Integer playersPerTeam,

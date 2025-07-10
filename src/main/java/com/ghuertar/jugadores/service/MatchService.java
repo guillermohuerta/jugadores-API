@@ -7,5 +7,7 @@ public interface MatchService {
 
     Match createMatch(MatchDTO matchDTO);
 
-    Match getMatch(Long id);
+    Match getMatch(Long matchId);
+
+    Match getMatchPlayers(Long matchId);
 }

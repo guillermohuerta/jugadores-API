@@ -1,7 +1,8 @@
 package com.ghuertar.jugadores.controller;
 
 import com.ghuertar.jugadores.dto.PlayerRegistrationDTO;
-import com.ghuertar.jugadores.model.Match;
+import com.ghuertar.jugadores.model.PlayerRegistration;
+import com.ghuertar.jugadores.service.PlayerRegistrationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,10 +12,15 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class MatchPlayerRegistrationController {
 
-    @PostMapping("/matches/{id}/players")
-    ResponseEntity<Match> registerPlayerToMatch(@RequestBody PlayerRegistrationDTO playerRegistrationDTO, @PathVariable Long id){
+    private final PlayerRegistrationService playerRegistrationService;
 
-        return ResponseEntity.ok(Match.builder().build());
+    @PostMapping("/matches/{matchId}/players/{playerId}")
+    ResponseEntity<PlayerRegistration> registerPlayerToMatch(@PathVariable Long matchId, @PathVariable Long playerId,
+                                                             @RequestBody PlayerRegistrationDTO playerRegistrationDTO) {
+
+        PlayerRegistration playerRegistration = playerRegistrationService.registerPlayerToMatch(matchId, playerId, playerRegistrationDTO);
+
+        return ResponseEntity.ok(playerRegistration);
     }
 
 }
