@@ -1,6 +1,6 @@
 package com.ghuertar.jugadores.controller;
 
-import com.ghuertar.jugadores.dto.PlayerDTO;
+import com.ghuertar.jugadores.dto.inputs.PlayerDTO;
 import com.ghuertar.jugadores.model.Player;
 import com.ghuertar.jugadores.service.PlayerService;
 import lombok.RequiredArgsConstructor;

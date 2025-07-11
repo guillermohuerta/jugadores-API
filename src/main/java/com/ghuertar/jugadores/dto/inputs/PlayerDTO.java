@@ -1,4 +1,4 @@
-package com.ghuertar.jugadores.dto;
+package com.ghuertar.jugadores.dto.inputs;
 
 public record PlayerDTO(
         String name,

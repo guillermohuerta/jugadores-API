@@ -1,6 +1,6 @@
 package com.ghuertar.jugadores.controller;
 
-import com.ghuertar.jugadores.dto.PlayerRegistrationDTO;
+import com.ghuertar.jugadores.dto.inputs.PlayerRegistrationDTO;
 import com.ghuertar.jugadores.model.PlayerRegistration;
 import com.ghuertar.jugadores.service.PlayerRegistrationService;
 import lombok.RequiredArgsConstructor;

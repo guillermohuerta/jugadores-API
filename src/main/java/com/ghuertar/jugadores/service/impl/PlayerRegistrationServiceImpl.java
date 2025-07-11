@@ -1,6 +1,6 @@
 package com.ghuertar.jugadores.service.impl;
 
-import com.ghuertar.jugadores.dto.PlayerRegistrationDTO;
+import com.ghuertar.jugadores.dto.inputs.PlayerRegistrationDTO;
 import com.ghuertar.jugadores.model.Match;
 import com.ghuertar.jugadores.model.Player;
 import com.ghuertar.jugadores.model.PlayerRegistration;
@@ -11,7 +11,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -40,10 +39,5 @@ public class PlayerRegistrationServiceImpl implements PlayerRegistrationService 
         playerRegistrationRepository.save(playerRegistration);
 
         return playerRegistration;
-    }
-
-    @Override
-    public List<PlayerRegistration> getPlayersToMatches() {
-        return List.of();
     }
 }

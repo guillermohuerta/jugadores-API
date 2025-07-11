@@ -1,6 +1,7 @@
 package com.ghuertar.jugadores.controller;
 
-import com.ghuertar.jugadores.dto.MatchDTO;
+import com.ghuertar.jugadores.dto.inputs.MatchDTO;
+import com.ghuertar.jugadores.dto.outputs.MatchWithPlayers;
 import com.ghuertar.jugadores.model.Match;
 import com.ghuertar.jugadores.service.MatchService;
 import lombok.RequiredArgsConstructor;
@@ -27,8 +28,8 @@ public class MatchController {
     }
 
     @GetMapping("/{matchId}/players")
-    public ResponseEntity<Match> getMatchPlayers(@PathVariable Long matchId) {
-        Match getMatch = matchService.getMatchPlayers(matchId);
-        return ResponseEntity.ok(getMatch);
+    public ResponseEntity<MatchWithPlayers> getMatchPlayers(@PathVariable Long matchId) {
+        MatchWithPlayers getMatchPlayers = matchService.getMatchPlayers(matchId);
+        return ResponseEntity.ok(getMatchPlayers);
     }
 }

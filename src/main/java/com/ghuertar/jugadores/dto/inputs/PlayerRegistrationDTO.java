@@ -1,6 +1,4 @@
-package com.ghuertar.jugadores.dto;
-
-import java.time.LocalDateTime;
+package com.ghuertar.jugadores.dto.inputs;
 
 public record PlayerRegistrationDTO(
         boolean willAttend,

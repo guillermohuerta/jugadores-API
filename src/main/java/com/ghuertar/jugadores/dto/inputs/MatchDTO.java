@@ -1,4 +1,4 @@
-package com.ghuertar.jugadores.dto;
+package com.ghuertar.jugadores.dto.inputs;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

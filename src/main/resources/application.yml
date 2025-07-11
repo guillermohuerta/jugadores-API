@@ -15,9 +15,18 @@ spring:
     username: postgres
     password: 123
   jpa:
+    defer-datasource-initialization: true
     hibernate:
       ddl-auto: create-drop
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: false
+  sql:
+    init:
+      mode: always
+
+#logging:
+#  level:
+#    org.springframework.jdbc.datasource.init.ScriptUtils: DEBUG
+

@@ -1,8 +1,9 @@
 package com.ghuertar.jugadores.service.impl;
 
-import com.ghuertar.jugadores.dto.MatchDTO;
+import com.ghuertar.jugadores.dto.inputs.MatchDTO;
+import com.ghuertar.jugadores.dto.outputs.MatchWithPlayers;
+import com.ghuertar.jugadores.dto.outputs.PlayerWithRegistrationDTO;
 import com.ghuertar.jugadores.model.Match;
-import com.ghuertar.jugadores.model.Player;
 import com.ghuertar.jugadores.repository.MatchRepository;
 import com.ghuertar.jugadores.repository.PlayerRegistrationRepository;
 import com.ghuertar.jugadores.service.MatchService;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -46,13 +48,12 @@ public class MatchServiceImpl implements MatchService {
     }
 
     @Override
-    public Match getMatchPlayers(Long matchId) {
-        List<Player> playersByMatchId = playerRegistrationRepository.findPlayersByMatchId(matchId);
+    public MatchWithPlayers getMatchPlayers(Long matchId) {
 
-        Match match = Match.builder()
-                .id(matchId)
-                .players(playersByMatchId).build();
+        Optional<Match> match = matchRepository.findById(matchId);
 
-        return match;
+        List<PlayerWithRegistrationDTO> playersWithRegistrationsByMatchId = playerRegistrationRepository.findPlayersWithRegistrationByMatchId(matchId);
+
+        return new MatchWithPlayers(match.get(), playersWithRegistrationsByMatchId);
     }
 }
