@@ -4,6 +4,7 @@ import com.ghuertar.jugadores.dto.inputs.MatchDTO;
 import com.ghuertar.jugadores.dto.outputs.MatchWithPlayers;
 import com.ghuertar.jugadores.dto.outputs.PlayerWithRegistrationDTO;
 import com.ghuertar.jugadores.model.Match;
+import com.ghuertar.jugadores.model.PlayerRegistration;
 import com.ghuertar.jugadores.repository.MatchRepository;
 import com.ghuertar.jugadores.repository.PlayerRegistrationRepository;
 import com.ghuertar.jugadores.service.MatchService;

@@ -1,10 +1,15 @@
 package com.ghuertar.jugadores.dto.outputs;
 
 import com.ghuertar.jugadores.model.Player;
-import com.ghuertar.jugadores.model.PlayerRegistration;
+
+import java.time.LocalDateTime;
 
 public record PlayerWithRegistrationDTO(
         Player player,
-        PlayerRegistration playerRegistration
+        boolean willAttend,
+        boolean hasPaid,
+        String receiptUrl,
+        boolean onBench,
+        LocalDateTime registrationDateTime
 ) {
 }
